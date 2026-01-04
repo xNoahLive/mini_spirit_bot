@@ -1,4 +1,4 @@
-wisdow = [
+wisdom = [
     "Ein ruhiger Geist hört die Ahnen klarer.",
     "Der Adler sieht weiter als der Krieger am Boden."
     "Der Wind spricht nur zu denen, die zuhören"
