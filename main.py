@@ -50,4 +50,31 @@ async def vision(interaction: discord.Interaction):
     text = random.choice(visions)
     await interaction.response.send_message(f"🔮 **Vision:**\n{text}")
 
+# Rituale
+
+
+@bot.command()
+async def rituals(ctx, name: str = None):
+    # Prüfen, ob ein Name eingegeben wurde
+    if name is None:
+        return await ctx.send(f"❌ **Meines wissen nicht, welches Ritual du meinst.**\nBitte schreibe: `/rituals [Name]` (z.B. `/rituals blutmond`)")
+
+    # Name in Kleinschreibung umwandeln für den Abgleich im Dictionary
+    name = name.lower()
+
+    if name in rituals:
+        r = rituals[name]
+
+        # Den Text aus dem Dictionary zusammenbauen
+        ritual_text = f"✨ **{r['name']}** ✨\n"
+        ritual_text += f"📜 *{r['beschreibung']}*\n\n"
+
+        for schritt in r['schritte']:
+            ritual_text += f"{schritt}\n"
+
+        await ctx.send(ritual_text)
+    else:
+        # Falls das Ritual nicht im Dictionary 'rituale' existiert
+        await ctx.send(f"❌ **Meines kennen dieses Ritual nicht.** Hast du dich verschrieben? Meines kennen nur: `{', '.join(rituals.keys())}`")
+
 bot.run(DISCORD_TOKEN)
