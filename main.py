@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -7,6 +8,9 @@ import random
 from spirits.wisdom import wisdom
 from spirits.visions import visions
 from spirits.animals import animals
+
+load_dotenv()  # Das bleibt jetzt fest im Code
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 # Token aus der Umgebungsvariable lesen
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
