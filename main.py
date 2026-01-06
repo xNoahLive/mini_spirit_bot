@@ -35,17 +35,17 @@ async def weisheit(interaction: discord.Interaction):
 # 🐺 Geisttier
 
 
-@bot.tree.command(name="geistertier", description="Dein Geisttier zeigt sich.")
+@bot.tree.command(name="geistertier", description="Ein Geisttier zeigt sich.")
 async def geistertier(interaction: discord.Interaction):
     tier, bedeutung = random.choice(list(animals.items()))
     await interaction.response.send_message(
-        f"🐺 **Dein Geisttier ist der {tier}**\nBedeutung: *{bedeutung}*"
+        f"🐺 **Dein Geisttier ist: {tier}**\nBedeutung: *{bedeutung}*"
     )
 
 # 🔮 Vision
 
 
-@bot.tree.command(name="vision", description="Eine Vision offenbart sich.")
+@bot.tree.command(name="vision", description="Eine Vision offenbart sich!")
 async def vision(interaction: discord.Interaction):
     text = random.choice(visions)
     await interaction.response.send_message(f"🔮 **Vision:**\n{text}")
